@@ -1,10 +1,12 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class GuessingGameApp {
 
     public static void main(String[] args) {
 
         Scanner inputScanner = new Scanner(System.in);
+        Random rand = new Random();
 
         String lineDivider = "\n============================================================";
         System.out.println("\n\n\n\n");
@@ -17,8 +19,8 @@ public class GuessingGameApp {
                 "\n0 to see these instructions again" +
                 lineDivider);
 
-        int triesRemaining = 2;
-        int actualNumber = 7;
+        int triesRemaining = 3;
+        int actualNumber = rand.nextInt(10) + 1;
         while (triesRemaining > 0) {
             int guessedNumber = inputScanner.nextInt();
             inputScanner.nextLine();
@@ -42,8 +44,11 @@ public class GuessingGameApp {
                             "\nWell, that's my ride. See 'ya later!" +
                             lineDivider);
                     System.exit(0);
+                case 42:
+                    System.out.println("Cheeky... ;) The secret number is " + actualNumber + " btw");
+                    break;
                 default:
-                    if (guessedNumber > actualNumber){
+                    if (guessedNumber > actualNumber) {
                         System.out.println("Your number is too high.");
                     } else {
                         System.out.println("Your number is too low.");
