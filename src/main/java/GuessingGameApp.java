@@ -6,41 +6,49 @@ public class GuessingGameApp {
 
         Scanner inputScanner = new Scanner(System.in);
 
-        String lineDivider = "============================================================";
-        System.out.println("Round and round and round she goes!");
-        System.out.println("Where she stops, nobody knows!");
-        System.out.println(lineDivider);
-        System.out.println("Please pick a number between 1 and 10!");
-        System.out.println(lineDivider);
+        String lineDivider = "\n============================================================";
+        System.out.println("\n\n\n\n");
+        System.out.println(lineDivider + lineDivider +
+                "\n\n           'Round and 'round and 'round she goes." +
+                "\n               Where she stops, nobody knows!\n" +
+                lineDivider +
+                "\nPlease pick a number between 1 and 10!" +
+                "\n-1 to exit" +
+                "\n0 to see these instructions again" +
+                lineDivider);
 
-        int turnsRemaining = 1;
+        int triesRemaining = 2;
         int actualNumber = 7;
-        while (turnsRemaining > 0) {
+        while (triesRemaining > 0) {
             int guessedNumber = inputScanner.nextInt();
             inputScanner.nextLine();
             if (guessedNumber == actualNumber) {
-                System.out.println();
-                System.out.println(lineDivider);
-                System.out.println("¸,ø¤º°`°º¤ø,¸ You win! ¸,ø¤º°`°º¤ø,¸");
-                System.out.println(lineDivider);
+                System.out.println(lineDivider +
+                        "\n,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø,¸ You win! ¸,ø¤º°`°º¤ø,¸¸,ø¤º°`°º¤ø," +
+                        lineDivider);
                 System.exit(0);
             }
             switch (guessedNumber) {
                 case 0:
-                    System.out.println();
-                    System.out.println(lineDivider);
-                    System.out.println("Remember:");
-                    System.out.println("Choose an integer value between 1 and 10, then press Enter!");
-                    System.out.println(lineDivider);
+                    System.out.println(lineDivider +
+                            "\nRemember: " +
+                            "\nChoose an integer value between 1 and 10, then press Enter!" +
+                            "\n-1 to exit" +
+                            "\n0 to see these instructions again" +
+                            lineDivider);
                     break;
                 case -1:
-                    System.out.println();
-                    System.out.println(lineDivider);
-                    System.out.println("Well, that's my ride. See 'ya later!");
-                    System.out.println(lineDivider);
+                    System.out.println(lineDivider +
+                            "\nWell, that's my ride. See 'ya later!" +
+                            lineDivider);
                     System.exit(0);
                 default:
-                    System.out.println("Better luck next time!");
+                    if (triesRemaining == 1) {
+                        System.out.println("Better luck next time!");
+                    } else {
+                        System.out.println("Try again!");
+                    }
+                    triesRemaining -= 1;
                     break;
             }
 
