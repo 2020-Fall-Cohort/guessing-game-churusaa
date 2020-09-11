@@ -13,7 +13,7 @@ public class GuessingGameApp {
         System.out.println("Please pick a number between 1 and 10!");
         System.out.println(lineDivider);
 
-        int turnsRemaining = 3;
+        int turnsRemaining = 1;
         int actualNumber = 7;
         while (turnsRemaining > 0) {
             int guessedNumber = inputScanner.nextInt();
